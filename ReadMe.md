@@ -18,4 +18,4 @@ The project <b>Online Service Screen</b> simulates an online service chat screen
 
 ### :link: Link
 
-- [Visit the project online]()
+- [Visit the project online](https://nicolaslk.github.io/College_Front-end_Project/)
