@@ -146,14 +146,14 @@ main {
   border-radius: 4px;
 }
 
-#service {
+.service {
   display: flex;
   gap: 0.375rem;
 
   padding: 0.5rem;
 }
 
-#service input {
+.service input {
   flex: 2;
 
   padding: 0.25rem;
@@ -165,7 +165,7 @@ main {
   border-radius: 4px;
 }
 
-#service button {
+.service button {
   flex: 1;
 
   padding: 0.25rem;
@@ -181,6 +181,6 @@ main {
   transition: all 0.6s;
 }
 
-#service button:hover {
+.service button:hover {
   transform: scale(1.1);
 }
