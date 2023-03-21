@@ -10,7 +10,7 @@
 
 - HTML
 - CSS
-  -JavaScript
+-JavaScript
 - Git e GitHub
 
 ## :art: Project:
