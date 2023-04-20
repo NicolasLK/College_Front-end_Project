@@ -11,6 +11,7 @@
 - HTML
 - CSS
 - JavaScript
+- VueJS
 - Git e GitHub
 
 ## :art: Project:

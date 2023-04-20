@@ -20,27 +20,70 @@
     <title>Engenheria de Software - Front_End</title>
   </head>
   <body>
-    <main>
-      <span class="title">Online Service</span>
+    <div id="app">
+      <main>
+        <span class="title">Online Service</span>
 
-      <section class="screen-messages">
-        <!--employee-chat-->
-        <span class="employee-chat">
-          Employee:
-          <p>Ola, Como posso ajudá-lo?</p>
-        </span>
-        <!--client-chat-->
-        <!-- <span class="client-chat">
-          <p></p>
-        </span> -->
-      </section>
+        <section class="screen-messages">
+          <!--employee-chat-->
+          <div v-for="msg in messages" :key="msg.id">
+            <span v-if="msg.author==='employee'" class="employee-chat">
+              <p>{{msg.text}}</p>
+            </span>
+            <!--client-chat-->
+            <span v-else="msg.author==='client'" class="client-chat">
+              <p>{{msg.text}}</p>
+            </span>
+          </div>
+        </section>
+        <section class="service">
+          <input
+            v-model="newMessage"
+            v-on:keyup.enter="sendMessage"
+            class="message"
+            type="text"
+            placeholder="Type your message"
+          />
+          <button v-on:click="sendMessage" class="btn">Send</button>
+        </section>
+      </main>
+    </div>
 
-      <section class="service">
-        <input class="message" type="text" placeholder="Type your message" />
-        <button class="btn">Send</button>
-      </section>
-    </main>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
-    <script src="./src/scripts/script.js"></script>
+    <script>
+      const { createApp } = Vue;
+
+      createApp({
+        data() {
+          return {
+            messages: [
+              {
+                id: 1,
+                author: "employee",
+                text: "ola, Como posso ajudá-lo?",
+              },
+            ],
+            newMessage: "",
+          };
+        },
+        methods: {
+          sendMessage() {
+            if (this.newMessage.trim() === "") {
+              return;
+            } else {
+              const newId = this.messages[this.messages.length - 1].id + 1;
+              this.messages.push({
+                id: this.newId,
+                author: "client",
+                text: this.newMessage,
+              });
+              this.newMessage = "";
+            }
+          },
+        },
+      }).mount("#app");
+    </script>
+    <!-- <script src="./src/scripts/script.js"></script> -->
   </body>
 </html>
